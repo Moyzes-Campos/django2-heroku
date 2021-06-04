@@ -1,10 +1,38 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title>Empresa X - Home</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
 </head>
 <body>
-    Esta página é apenas um teste.
+    <div class="container">
+        <header class="header">
+            <a href="{% url 'index' %}">Empresa X</a>
+            <ul class="menu">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'contato' %}">Contato</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
+            </ul>
+        </header>
+
+        <div class="banner1">
+            <img src="{% static 'images/banner1.jpg' %}">
+            <div class="banner1-content">
+                <h2>Porque sua empresa <br> deve ter um site!</h2>
+            </div>
+        </div>
+
+        <div class="banner2">
+            <h2>Leia nossos Posts</h2>
+
+            {% for post in posts %}
+                <h4>{{post.titulo}}</h4>
+                <h5>{{post.subtitulo}}</h5>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>
