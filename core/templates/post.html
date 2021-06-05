@@ -1,5 +1,6 @@
-<!DOCTYPE html>
 {% load static %}
+
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -18,19 +19,9 @@
         </header>
 
         <div class="banner1">
-            <img src="{% static 'images/banner1.jpg' %}">
-            <div class="banner1-content">
-                <h2>Porque sua empresa <br> deve ter um site!</h2>
-            </div>
-        </div>
-
-        <div class="banner2">
-            <h2>Leia nossos Posts</h2>
-
-            {% for post in posts %}
-                <h4>{{post.titulo}}</h4>
-                <h5>{{post.subtitulo}}</h5>
-            {% endfor %}
+            <h1>{{post.titulo}}</h1>
+            <h2>{{post.subtitulo}}</h2>
+            <p>{{post.texto}}</p>
         </div>
     </div>
 </body>

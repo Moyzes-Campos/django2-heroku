@@ -14,12 +14,22 @@ def index(request):
 
 
 def blog(request):
-    return render(request, 'blog.html')
+    postagens = Posts.objects.all()
+
+    context = {
+        'posts': postagens,
+    }
+    return render(request, 'blog.html', context)
 
 
 def contato(request):
     return render(request, 'contato.html')
 
 
-def posts(request):
-    return render(request, 'post.html')
+def posts(request, pk):
+    post = Posts.objects.get(id=pk)
+
+    context = {
+        'post': post
+    }
+    return render(request, 'post.html', context)
